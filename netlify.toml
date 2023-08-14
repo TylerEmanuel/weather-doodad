@@ -1,0 +1,17 @@
+# example netlify.toml
+[build]
+  functions = "functions"
+  publish = "public"
+
+[functions]
+  node_bundler = "esbuild" 
+
+[[redirects]]
+    force = true
+    from = "/weather/*"
+    to = "/.netlify/functions/weather/:splat"
+    status = 200
+
+[dev]
+  port = 3000 # Port that the dev server will be listening on
+  publish = "public" # Folder with the static content for _redirect file

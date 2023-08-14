@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Weather Doodad</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+
+        <main class="container">
+                
+            <h1 class="app_title">The Weather Doodad</h1>
+
+            <form id="location-form" class="location_form">
+                <label class="location_form__label" for="zipcode" >Enter a zipcode</label>
+                <input id="zipcode-input" class="location_form__input" name="zipcode" type="number" placeholder="zipcode">
+                <button id="zipcode-submit" class="location_form__btn">Submit</button>
+            </form>
+
+            <div id="current-weather" class="weather hide-el">
+                <h3 class="weather__label">Currently in</h3>
+                <h4 id="weather-location" class="weather__location"></h4>
+
+                <div id="current-forecast" class="weather__forecast weather__forecast--current">
+                    <p class="loading_text">Loading...</p>
+                </div>
+            </div>
+
+            <div id="future-weather" class="weather hide-el">
+                <h3 class="weather__label weather__label--future">Your week ahead</h3>
+
+                <div id="future-forecast" class="weather__forecast weather__forecast--future">
+                    <p class="loading_text">Loading...</p>
+                </div>
+            </div>
+            
+        </main>
+
+        <script src="index.js" type="module"></script>
+
+    </body>
+</html>

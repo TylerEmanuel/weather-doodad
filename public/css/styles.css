@@ -1,0 +1,355 @@
+:root {
+    --gradient-bg: linear-gradient(180deg, rgb(29, 113, 242) 0%,  rgb(28, 150, 246) 40%);
+    --main-bg-color: rgba(110,200,255,1);
+    --main-text-color: black;
+    --secondary-text-color: white;
+    --box-shadow-color: black;
+    --mobile-safe-space-color: rgb(30, 30, 30);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* removes number input buttons to center numbers */
+input[type='number']::-webkit-inner-spin-button, 
+input[type='number']::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    margin: 0;
+}
+/***/
+
+html {
+    margin: 0;
+    /* sets background color and padding for mobile safe space notch */
+    background-color: var(--mobile-safe-space-color);
+    padding: env(safe-area-inset);
+    /***/
+}
+
+body {
+    margin: 0;
+    padding: 2em 0;
+    background: var(--gradient-bg);
+    color: var(--main-text-color);
+    font-family: 'Roboto', sans-serif;
+    /* fallback for browsers that do not support dvh */
+    min-height: 100vh;
+    /***/
+    min-height: 100dvh;
+    min-width: 320px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--main-bg-color);
+    box-shadow: 0px .5px 5px var(--box-shadow-color);
+    border-radius: 10px;
+    width: 90vw;
+    min-width: 290px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.app_title {
+    letter-spacing: 1.5px;
+    color: var(--secondary-text-color);
+    text-shadow: 0px .5px 5px var(--box-shadow-color);
+    text-align: center;
+    margin: 0;
+    padding: 1em;
+}
+
+.loading_text {
+    display: flex;
+    justify-content: center;
+    font-size: 1.125em;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin: 0;
+    padding: 2em 0;
+    color: var(--main-text-color);
+}
+
+
+
+/************ 
+LOCATION FORM
+************/
+.location_form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    padding: 1em;
+}
+
+.location_form__label,
+.location_form__input,
+.location_form__btn {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 2em;
+}
+
+.location_form__input,
+.location_form__btn {
+    padding: 1.75em 1.25em;
+}
+
+.location_form__btn {
+    color: var(--main-text-color);
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px var(--box-shadow-color);
+}
+
+.location_form__btn:hover,
+.location_form__btn:focus {
+    cursor: pointer;
+    box-shadow: 0px 0px 5px white;
+    background-color: rgb(28, 150, 246, .7);
+    color: var(--secondary-text-color);
+    font-weight: 700;
+}
+/* end of location form section */
+
+
+
+/****** 
+WEATHER
+******/
+.weather {
+    width: 100%;
+}
+
+.weather__label {
+    margin-top: 0;
+    margin-bottom: 1.25em;
+    color: white;
+    text-shadow: 0px .5px 3px var(--box-shadow-color);
+    letter-spacing: 1.5px;
+}
+
+.weather__label--future {
+    text-align: center;    
+}
+
+.weather__location {
+    margin: .5em 0;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.weather__forecast {
+    display: flex;
+    flex-direction: column;
+}
+
+.forecast_container {
+    padding: 0em 0;
+}
+
+.forecast_container--future {
+    display: grid;
+    grid-template-columns: 14% 1fr;
+    align-items: center;
+    padding-bottom: 1em;
+}
+
+.forecast_container--future:nth-child(n+2) {
+    border-top: 3px var(--secondary-text-color) solid;
+    padding-top: 1em;
+}
+
+.weather__date {
+    font-size: 1.125rem;
+    text-align: center;
+}
+
+.weather__date--current {
+    margin-bottom: 1em;
+}
+
+.weather__date--future {
+    font-size: 1rem;
+    width: min-content;
+    justify-self: center;
+}
+
+.weather__main_info {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.weather__main_info--current {
+    margin-bottom: 1em;
+}
+
+.weather__temp {
+    display: flex;
+    align-items: center;
+}
+
+.weather__temp--current {
+    font-size: 3rem;
+}
+
+.weather__temp--max {
+    font-size: 2rem;
+}
+
+.weather__temp--min {
+    font-size: 1.5rem;
+    opacity: 60%;
+}
+
+.weather__temp_units {
+    font-size: 1.5rem;
+    padding-left: .25em;
+}
+
+.weather__condition {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.weather__condition_text {
+    display: none;
+    padding-right: 15px;
+}
+
+.weather__outlook {
+    grid-row: span 2;
+    height: 100%;
+    display: grid;
+    align-items: center;
+}
+
+.weather__precip,
+.weather__wind {
+    display: grid;
+    justify-items: center;
+    gap: .25em;
+}
+
+.weather__precip_icon,
+.weather__wind_icon {
+    width: 50px;
+}
+
+.weather__precip_text,
+.weather__wind_text {
+    text-align: center;
+}
+
+.weather__wind_units {
+    font-size: .875rem;
+}
+
+.weather__secondary_info {
+    display: none;
+}
+/* end of weather section */
+
+
+/************ 
+MEDIA QUERIES
+************/
+@media (min-width: 550px) {
+    .weather__location {
+        font-size: 1.75rem;
+    }
+
+    .weather__date {
+        font-size: 1.25rem;
+    }
+    
+    .weather__precip,
+    .weather__wind {
+        display: grid;
+        align-items: center;
+        justify-items: flex-start;
+        grid-template-columns: min-content 1fr;
+        gap: 1em;
+    }
+
+    .weather__condition_text {
+        display: block;
+    }
+}
+
+@media (min-width: 750px) {
+    .container {
+        padding: 2em;
+    }
+
+    .weather__location {
+        font-size: 1.75rem;
+    }
+
+    .weather__date {
+        font-size: 1.25rem;
+    }
+
+    .weather__main_info {
+        display: grid;
+        grid-template-columns: 26% 45% 29%;
+        grid-template-rows: 1fr;
+    }
+
+    .weather__main_info--future {
+        justify-items: flex-start;
+    }
+
+    .weather__temp--future {
+        justify-self: center;
+    }
+
+    .weather__condition--future,
+    .weather__outlook--future {
+        padding-left: 10%;
+    }
+
+    .weather__outlook {
+        grid-row: span 1;
+        gap: 1.25em;
+    }
+
+    .weather__secondary_info{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 2em 0;
+        margin-bottom: 1em;
+    }
+}
+/* end of media queries section */
+
+
+
+/**************
+UTILITY CLASSES
+**************/
+.hide-el {
+    display: none;
+}
+/* end of utility classes section */
