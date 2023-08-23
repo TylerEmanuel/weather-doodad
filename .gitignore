@@ -8,6 +8,12 @@
 /tmp
 /out-tsc
 
+# testing
+/coverage
+
+# production
+/build
+
 # Runtime data
 pids
 *.pid
@@ -64,6 +70,8 @@ yarn-error.log*
 # Dependency directories
 node_modules/
 jspm_packages/
+/.pnp
+.pnp.js
 
 # Optional npm cache directory
 .npm
@@ -82,6 +90,10 @@ jspm_packages/
 
 # dotenv environment variables file
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # next.js build output
 .next
